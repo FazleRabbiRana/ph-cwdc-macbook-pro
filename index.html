@@ -6,10 +6,13 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Interactive MacBook Pro Purchase Configuration Assignment</title>
 
+	<!-- favicon -->
+	<link rel="shortcut icon" href="./images/favicon.png" type="image/x-icon">
+
 	<!-- google font -->
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-	<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300,400;600&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
 
 	<!-- tailwind css -->
 	<link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
@@ -20,17 +23,22 @@
 	<main>
 		<section>
 			<div class="container mx-auto px-4 lg:px-10 pt-10 flex flex-wrap">
-				<div class="product-image md:w-5/12 lg:w-1/2 px-8 md:px-4 lg:px-10 xl:px-20">
+				<!-- product image -->
+				<div class="product-image md:w-5/12 lg:w-1/2 px-8 md:px-4 lg:px-10 xl:px-16">
 					<img src="./images/mac.png" alt="MacBook image">
 				</div>
+
+				<!-- product details -->
 				<div class="product-details md:w-7/12 lg:w-1/2 md:px-3 lg:px-1 xl:px-6 mt-8 md:mt-0">
 					<h2 class="text-4xl leading-tight lg:text-5xl lg:leading-tight font-semibold tracking-normal">Customize your Blue 24-inch iMac with Apple M1 chip.</h2>
-					<p class="mt-4">Apple M1 chip with 8-core CPU with 4 performance cores and 4 efficiency cores, 7-core GPU, and 16-core Neural Engine 8GB unified memory 256GB SSD storage Two Thunderbolt / USB 4 ports Magic Mouse Magic Keyboard - US English</p>
+					<p class="mt-2">Apple M1 chip with 8-core CPU with 4 performance cores and 4 efficiency cores, 7-core GPU, and 16-core Neural Engine 8GB unified memory 256GB SSD storage Two Thunderbolt / USB 4 ports Magic Mouse Magic Keyboard - US English</p>
 
 					<div class="memory mt-10">
 						<h6 class="font-bold">Memory</h6>
-						<button id="btn_memory_8gb">8GB unified memory</button>
-						<button id="btn_memory_16gb">16GB unified memory</button>
+						<div id="memory_options">
+							<button id="btn_memory_8gb">8GB unified memory</button>
+							<button id="btn_memory_16gb">16GB unified memory</button>
+						</div v>
 					</div>
 					<div class="storage mt-10">
 						<h6 class="font-bold">Storage</h6>
@@ -46,7 +54,7 @@
 					<div class="price-details mt-10 sm:w-1/2 md:w-3/4 xl:w-1/2">
 						<h6 class="font-bold p-1 border-b border-gray-300 flex flex-nowrap justify-between">
 							<span class="label">Best Price</span>
-							<span class="value w-20 px-2">$<span id="best_price">1299</span></span>
+							<span class="value w-20 px-2">$<span id="base_cost">1299</span></span>
 						</h6>
 						<h6 class="font-bold p-1 border-b border-gray-300 flex flex-nowrap justify-between">
 							<span class="label">Extra Memory Cost</span>
@@ -62,18 +70,20 @@
 						</h6>
 						<h6 class="font-bold p-1 border-b border-gray-300 flex flex-nowrap justify-between">
 							<span class="label">Total Price</span>
-							<span class="value w-20 px-2">$<span id="total_price">0</span></span>
+							<span class="value w-20 px-2">$<span id="total_cost">1299</span></span>
 						</h6>
 						<div class="promo-code mt-4">
 							<p class="font-medium">Add Promo code</p>
 							<div class="mt-1 flex flex-nowrap">
 								<input type="text" id="promo_code_input" class="border border-gray-300 rounded w-full flex-shrink px-3 py-1">
-								<button id="btn_apply_promo" class="flex-shrink-0 border-0 bg-red-400 hover:border-0 hover:bg-red-700 text-white rounded px-3 py-1 mt-0">Apply</button>
+								<button id="btn_apply_promo" class="flex-shrink-0 border-0 bg-red-500 hover:border-0 hover:bg-red-700 text-white rounded px-3 py-1 mt-0" title="Apply promo code to get 20% discount!">Apply</button>
 							</div>
 						</div>
 					</div>
 				</div>
-				<div class="w-full text-center pt-4 pb-2 mt-4 border-t border-gray-300">
+
+				<!-- product price grand total -->
+				<div class="grand-total w-full text-center pt-4 pb-2 mt-4 border-t border-gray-300">
 					<h3 class="text-4xl lg:text-5xl font-semibold tracking-normal">Total: $<span id="product_grand_total">1299</span></h3>
 				</div>
 			</div>

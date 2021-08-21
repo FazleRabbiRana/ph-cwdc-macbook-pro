@@ -1,6 +1,6 @@
 body {
 	font-family: 'Open Sans', sans-serif;
-	letter-spacing: 0.4px;
+	letter-spacing: 0.2px;
 	overflow-x: hidden;
 }
 button {
@@ -9,7 +9,7 @@ button {
 	border-radius: 0.25rem;
 	padding: 0.25rem 0.75rem;
 	margin-top: 0.25rem;
-	transition: all 0.2s ease;
+	transition: background-color 0.2s, color 0.2s, box-shadow 0.2s;
 }
 button:hover {
 	background-color: rgba(34, 34, 34, 1);
@@ -20,4 +20,8 @@ button:focus,
 input:focus {
 	outline: 0;
 	box-shadow: 0 0 0px 3px rgba(50, 50, 50, 0.4);
+}
+button:disabled {
+	opacity: 0.6;
+	cursor: not-allowed;
 }
