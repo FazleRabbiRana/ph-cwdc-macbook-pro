@@ -1,6 +1,7 @@
 body {
 	font-family: 'Open Sans', sans-serif;
 	letter-spacing: 0.2px;
+	width: 100%;
 	overflow-x: hidden;
 }
 button {

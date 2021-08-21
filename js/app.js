@@ -3,7 +3,7 @@
 */
 function updatePrice(costFieldId, price) {
 	// update additional items cost
-	document.getElementById(costFieldId).innerText = parseFloat(price);
+	document.getElementById(costFieldId).innerText = price;
 	// update total cost
 	calculateTotal();
 	// reset the promo code apply
@@ -40,13 +40,14 @@ function getProductPrice(productName) {
 * Reset promo code apply function
 */
 function resetPromoCodeApply() {
-	const promoCodeInputField = document.getElementById('promo_code_input');
 	const promoCodeApplyButton = document.getElementById('btn_apply_promo');
-	promoCodeInputField.value = '';
 	promoCodeApplyButton.removeAttribute('disabled');
 	promoCodeApplyButton.setAttribute('title', 'Apply promo code to get 20% discount!');
 }
 
+/* -------------------------
+ * Handle product items button click
+------------------------- */
 // Memory 8gb button click
 document.getElementById('btn_memory_8gb').addEventListener('click', function(){
 	updatePrice('memory_cost', 0);
@@ -55,6 +56,8 @@ document.getElementById('btn_memory_8gb').addEventListener('click', function(){
 document.getElementById('btn_memory_16gb').addEventListener('click', function(){
 	updatePrice('memory_cost', 180);
 });
+
+// 
 // Storage 256gb button click
 document.getElementById('btn_storage_256gb').addEventListener('click', function(){
 	updatePrice('storage_cost', 0);
@@ -67,6 +70,8 @@ document.getElementById('btn_storage_512gb').addEventListener('click', function(
 document.getElementById('btn_storage_1tb').addEventListener('click', function(){
 	updatePrice('storage_cost', 180);
 });
+
+// 
 // Delivery free button click
 document.getElementById('btn_delivery_free').addEventListener('click', function(){
 	updatePrice('delivery_cost', 0);
@@ -77,27 +82,14 @@ document.getElementById('btn_delivery_charged').addEventListener('click', functi
 });
 
 // 
-// handle memory buttons click
-// document.getElementById('memory_options').addEventListener('click', function(e){
-// 	// const memory8GB = document.getElementById('btn_memory_8gb');
-// 	const memory16GB = document.getElementById('btn_memory_16gb');
-// 	if(e.target == memory16GB) {
-// 		console.log('add extra 180');
-// 	} else {
-// 		console.log('add 0.');
-// 	}
-// });
-
-/**
-* Handle promo code apply button click
-*/
+// Promo code apply button click
 document.getElementById('btn_apply_promo').addEventListener('click', function(e){
 	const promoCodeInputField = document.getElementById('promo_code_input');
 	const promoCodeInput = promoCodeInputField.value.toLowerCase();
 	if(promoCodeInput == 'stevekaku') {	
 		const totalCostField = document.getElementById('total_cost');
 		const totalPrice = parseFloat(totalCostField.innerText);
-		const discountAmount = parseFloat(totalPrice) * (20 / 100);
+		const discountAmount = totalPrice * (20 / 100);
 		const discountedGrandTotal = totalPrice - discountAmount;
 		document.getElementById('product_grand_total').innerText = discountedGrandTotal;
 		// disable this apply button to prevent multiple click
@@ -106,4 +98,6 @@ document.getElementById('btn_apply_promo').addEventListener('click', function(e)
 	} else {
 		alert('Promo code didn\'t match.')
 	}
+	// clear promo code input
+	promoCodeInputField.value = '';
 });
